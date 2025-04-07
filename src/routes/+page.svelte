@@ -1,18 +1,21 @@
 <script lang="ts">
-	import type { PageProps } from './$types';
+  import type { PageProps } from './$types';
 
-	let { data }: PageProps = $props();
+  let { data }: PageProps = $props();
 </script>
 
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<p>
+  Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the
+  documentation
+</p>
 
 <form method="post">
-	<button type="submit">Send</button>
+  <button type="submit">Send</button>
 </form>
 
 <ul>
-	{#each data.dinosaurs as dinosaur}
-		<li>{dinosaur.name}</li>
-	{/each}
+  {#each data.dinosaurs as dinosaur}
+    <li>{dinosaur.name}</li>
+  {/each}
 </ul>
