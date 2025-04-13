@@ -33,6 +33,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Bun Sveltekit</title>
+</svelte:head>
+
 <form onsubmit={handleQueryChange} class="mb-4">
   <label class="mb-2 block text-sm font-bold" for="q">Search</label>
   <input
@@ -103,7 +107,7 @@
   child: string | number,
 )}
   <button
-    class="rounded border p-4"
+    class="cursor-pointer rounded border p-4"
     class:disabled
     {disabled}
     class:active

@@ -1,5 +1,3 @@
-import { type Actions } from '@sveltejs/kit';
-import { runSeed } from '../lib/server/db/seed';
 import { db } from '$lib/server/db';
 import { dinosaur } from '$lib/server/db/schema';
 import { count, like } from 'drizzle-orm';
@@ -58,10 +56,4 @@ export const load = async ({ url }) => {
     totalPages,
     totalDinos,
   };
-};
-
-export const actions: Actions = {
-  default: async () => {
-    await runSeed();
-  },
 };
