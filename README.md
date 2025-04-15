@@ -1,38 +1,26 @@
-# sv
+# Dinosaur example with SvelteKit
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+The goal of this application is to showcase different parts of how SvelteKit works.
 
-## Creating a project
+## Setup
 
-If you're seeing this, you've probably already done this step. Congrats!
+1. Install dependencies using `bun install`
+2. You must copy the `.env.example` file to a `.env` file.
+3. Run the `bun run db:push` to set up a SQLite DB.
+4. Run the application `bun run dev --open`.
+5. Navigate to the "Examples" page and click the "Send" button under "Seed the database"
 
-```bash
-# create a new project in the current directory
-npx sv create
+### What the app should look like
 
-# create a new project in my-app
-npx sv create my-app
-```
+![Example screenshot of the app](./static/readme_example.png)
 
-## Developing
+### Highlights
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+On the homepage there is a paginated result of dinosaurs that is searchable using query parameters and every time you press "enter" we are updating the results to the page.
 
-```bash
-npm run dev
+On the examples site there are several inputs to showcase.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Form inputs that are using `use:enhance` and one that is not.
+- A reactive slider to showcase `$state` and `$derived`.
+- Deeply reactive state thanks to symbols (see todo list).
+- State proxies to show a unique issue passing state directly.
