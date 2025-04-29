@@ -17,17 +17,6 @@
       blue,
     };
   });
-
-  let todos = $state([
-    { done: false, text: 'Learn Svelte' },
-    { done: false, text: 'Learn SvelteKit' },
-    { done: false, text: 'Learn TypeScript' },
-    { done: false, text: 'Learn Drizzle ORM' },
-    { done: false, text: 'Learn Vite' },
-    { done: false, text: 'Give SvelteKit talk' },
-  ]);
-
-  let doneTodos = $derived.by(() => todos.filter((todo) => todo.done).length);
 </script>
 
 <svelte:head>
@@ -106,44 +95,6 @@
     </section>
 
     <hr />
-
-    <section class="mb-4">
-      <h2 class="mb-2 text-xl">Deeply reactive state</h2>
-
-      <ul>
-        {#each todos as todo (todo.text)}
-          <li>
-            <input type="checkbox" bind:checked={todo.done} />
-            {todo.text}
-          </li>
-        {/each}
-      </ul>
-      <span class="text-lg font-bold text-emerald-600">Done: {doneTodos}</span>
-    </section>
-
-    <hr />
-
-    <section class="mb-4">
-      <h2 class="mb-2 text-xl">State proxies</h2>
-
-      <button
-        class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
-        onclick={() => {
-          console.log(todos.at(0));
-        }}
-      >
-        Show first todo
-      </button>
-
-      <button
-        class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
-        onclick={() => {
-          console.log($state.snapshot(todos.at(0)));
-        }}
-      >
-        Show correct first todo
-      </button>
-    </section>
   </section>
 </div>
 
