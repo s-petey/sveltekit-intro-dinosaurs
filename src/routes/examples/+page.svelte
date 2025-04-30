@@ -1,6 +1,7 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
   import type { PageProps } from './$types';
+  import Async from './Async.svelte';
 
   let { form }: PageProps = $props();
 
@@ -63,22 +64,8 @@
   <hr />
 
   <section class="mb-4">
-    <h2 class="mb-2 text-xl">Seed the database</h2>
-    <form class="flex items-center" method="post" action="?/seed">
-      <button
-        class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
-        type="submit"
-      >
-        Send
-      </button>
-    </form>
-  </section>
-
-  <hr />
-
-  <section class="mb-4">
     <section class="mb-4">
-      <h2 class="mb-2 text-xl">Reactive slider <span>{colorValue}%</span></h2>
+      <h2 class="mb-2 text-xl">Reactive slider<span>{colorValue}%</span></h2>
       <form>
         <input
           class="w-full"
@@ -95,6 +82,28 @@
     </section>
 
     <hr />
+
+    <section class="mb-4">
+      <section class="mb-4">
+        <h2 class="mb-2 text-xl">Async in components</h2>
+
+        <Async />
+      </section>
+    </section>
+
+    <hr />
+
+    <section class="mb-4">
+      <h2 class="mb-2 text-xl">Seed the database</h2>
+      <form class="flex items-center" method="post" action="?/seed">
+        <button
+          class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
+          type="submit"
+        >
+          Send
+        </button>
+      </form>
+    </section>
   </section>
 </div>
 
