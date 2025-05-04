@@ -1,8 +1,15 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
   import type { PageProps } from './$types';
+  import Async from './Async.svelte';
 
-  let { form }: PageProps = $props();
+  let { form, data }: PageProps = $props();
+
+  function showcaseData() {
+    const myUser = data.user;
+
+    console.log('User', myUser);
+  }
 
   let colorValue = $state(0);
 
@@ -17,17 +24,6 @@
       blue,
     };
   });
-
-  let todos = $state([
-    { done: false, text: 'Learn Svelte' },
-    { done: false, text: 'Learn SvelteKit' },
-    { done: false, text: 'Learn TypeScript' },
-    { done: false, text: 'Learn Drizzle ORM' },
-    { done: false, text: 'Learn Vite' },
-    { done: false, text: 'Give SvelteKit talk' },
-  ]);
-
-  let doneTodos = $derived.by(() => todos.filter((todo) => todo.done).length);
 </script>
 
 <svelte:head>
@@ -74,22 +70,8 @@
   <hr />
 
   <section class="mb-4">
-    <h2 class="mb-2 text-xl">Seed the database</h2>
-    <form class="flex items-center" method="post" action="?/seed">
-      <button
-        class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
-        type="submit"
-      >
-        Send
-      </button>
-    </form>
-  </section>
-
-  <hr />
-
-  <section class="mb-4">
     <section class="mb-4">
-      <h2 class="mb-2 text-xl">Reactive slider <span>{colorValue}%</span></h2>
+      <h2 class="mb-2 text-xl">Reactive slider<span>{colorValue}%</span></h2>
       <form>
         <input
           class="w-full"
@@ -108,41 +90,41 @@
     <hr />
 
     <section class="mb-4">
-      <h2 class="mb-2 text-xl">Deeply reactive state</h2>
+      <section class="mb-4">
+        <h2 class="mb-2 text-xl">Async in components</h2>
 
-      <ul>
-        {#each todos as todo (todo.text)}
-          <li>
-            <input type="checkbox" bind:checked={todo.done} />
-            {todo.text}
-          </li>
-        {/each}
-      </ul>
-      <span class="text-lg font-bold text-emerald-600">Done: {doneTodos}</span>
+        <Async />
+      </section>
     </section>
 
     <hr />
 
     <section class="mb-4">
-      <h2 class="mb-2 text-xl">State proxies</h2>
+      <section class="mb-4">
+        <h2 class="mb-2 text-xl">Log layout data</h2>
 
-      <button
-        class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
-        onclick={() => {
-          console.log(todos.at(0));
-        }}
-      >
-        Show first todo
-      </button>
+        <button
+          onclick={showcaseData}
+          class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
+          type="button"
+        >
+          Action
+        </button>
+      </section>
+    </section>
 
-      <button
-        class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
-        onclick={() => {
-          console.log($state.snapshot(todos.at(0)));
-        }}
-      >
-        Show correct first todo
-      </button>
+    <hr />
+
+    <section class="mb-4">
+      <h2 class="mb-2 text-xl">Seed the database</h2>
+      <form class="flex items-center" method="post" action="?/seed">
+        <button
+          class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
+          type="submit"
+        >
+          Send
+        </button>
+      </form>
     </section>
   </section>
 </div>

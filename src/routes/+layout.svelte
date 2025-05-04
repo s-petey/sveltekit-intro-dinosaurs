@@ -6,7 +6,10 @@
 <header class="flex flex-row place-content-between items-center p-4">
   <nav class="flex flex-row items-center gap-4">
     <h1 class="text-2xl"><a href="/">Bun Sveltekit</a></h1>
+    <span>|</span>
     <h2 class="text-xl"><a href="/examples">Examples</a></h2>
+    <span>|</span>
+    <h2 class="text-xl"><a href="/examples/reactive">Reactivity</a></h2>
   </nav>
   <img id="bun" class="w-32" src="/vite-bun.svg" alt="Vite with Bun" />
 </header>
