@@ -82,11 +82,11 @@
 </script>
 
 <div class="flex flex-col gap-4">
-  <div class="flex flex-row items-center gap-4">
-    <h1 class="text-2xl">Reactivity</h1>
-    <span>|</span>
-    <h2 class="text-xl">Task list</h2>
-  </div>
+  <h1 class="flex flex-row items-center justify-center gap-4 text-2xl">
+    <span>Reactivity</span>
+    <span>&mdash;</span>
+    <span>Task list</span>
+  </h1>
 
   <div class="flex flex-row justify-evenly gap-4">
     <button
