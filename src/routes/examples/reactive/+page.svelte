@@ -19,7 +19,7 @@
     return Math.floor(Math.random() * Date.now() * 1000);
   }
 
-  let tasks = $state<TaskClass[]>(
+  let tasks = $state(
     Array.from(
       { length: 10 },
       () =>

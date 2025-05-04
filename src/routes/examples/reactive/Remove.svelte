@@ -1,9 +1,12 @@
 <script lang="ts">
   import type { Task } from './Task.class.svelte';
-  let { taskId, removeTask } = $props<{
+  let {
+    taskId,
+    removeTask,
+  }: {
     taskId: Task['id'];
     removeTask: (index: Task['id']) => void;
-  }>();
+  } = $props();
 
   $effect.pre(() => {
     console.log('Remove render', taskId);
