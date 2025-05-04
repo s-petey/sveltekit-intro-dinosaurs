@@ -51,6 +51,13 @@
     }
   }
 
+  function updateTask(index: TaskClass['id'], title: string) {
+    const foundTask = tasks.find((task) => task.id === index);
+    if (foundTask) {
+      foundTask.title = title;
+    }
+  }
+
   function addTaskToBottom() {
     tasks.push(
       new TaskClass({
@@ -141,7 +148,7 @@
 
   <section class="flex max-h-52 flex-col gap-2 overflow-y-auto">
     {#each tasks as task (task.id)}
-      <Task {task} {removeTask} />
+      <Task {task} {updateTask} {removeTask} />
     {/each}
   </section>
 </div>
