@@ -1,9 +1,19 @@
 <script lang="ts">
   import Task from './Task.svelte';
   import { Task as TaskClass } from './Task.class.svelte';
+  import type { PageProps } from './$types';
+
+  let data: PageProps = $props();
 
   const names = ['Alice', 'Bob', 'Charlie'];
   const importances = ['High', 'Medium', 'Low'];
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function _showcaseData() {
+    const myUser = data.data.user;
+
+    console.log('User', myUser);
+  }
 
   function generateNewId() {
     return Math.floor(Math.random() * Date.now() * 1000);

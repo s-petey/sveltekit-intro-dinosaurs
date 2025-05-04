@@ -3,7 +3,13 @@
   import type { PageProps } from './$types';
   import Async from './Async.svelte';
 
-  let { form }: PageProps = $props();
+  let { form, data }: PageProps = $props();
+
+  function showcaseData() {
+    const myUser = data.user;
+
+    console.log('User', myUser);
+  }
 
   let colorValue = $state(0);
 
@@ -88,6 +94,22 @@
         <h2 class="mb-2 text-xl">Async in components</h2>
 
         <Async />
+      </section>
+    </section>
+
+    <hr />
+
+    <section class="mb-4">
+      <section class="mb-4">
+        <h2 class="mb-2 text-xl">Log layout data</h2>
+
+        <button
+          onclick={showcaseData}
+          class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-bold text-white hover:bg-emerald-700"
+          type="button"
+        >
+          Action
+        </button>
       </section>
     </section>
 
