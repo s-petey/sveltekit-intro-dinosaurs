@@ -14,10 +14,10 @@
   let colorValue = $state(0);
 
   let colorValues = $derived.by(() => {
-    var red =
+    const red =
       (colorValue > 50 ? 1 - (2 * (colorValue - 50)) / 100.0 : 1.0) * 255;
-    var green = (colorValue > 50 ? 1.0 : (2 * colorValue) / 100.0) * 255;
-    var blue = 0.0;
+    const green = (colorValue > 50 ? 1.0 : (2 * colorValue) / 100.0) * 255;
+    const blue = 0.0;
     return {
       red,
       green,
