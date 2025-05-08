@@ -7,8 +7,8 @@ export const user = sqliteTable('user', {
 
 export const dinosaur = sqliteTable('dinosaur', {
   id: integer('id').primaryKey(),
-  name: text('name'),
-  description: text('description'),
+  name: text('name').notNull(),
+  description: text('description').notNull(),
 });
 
 export type Dinosaur = typeof dinosaur.$inferSelect;
